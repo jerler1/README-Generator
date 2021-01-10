@@ -1,9 +1,4 @@
-function confirmValidation(input) {
-  if (input !== "Yes" || input !== "No" || input !== "y" || input !== "n") {
-    return "Incorrect asnwer";
-  } else if (input === "No" || input === "n") {
-    process.exit();
-  } else {
-    return true;
-  }
-}
+## Best Project
+  ---
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  

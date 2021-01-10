@@ -23,12 +23,22 @@ function renderLicenseSection(license) {}
 function generateMarkdown(data) {
   if (data.confirmLicense) {
     const license = data.chooseLicense;
-  }
-  return `## ${data.title}
+    const badge = renderLicenseBadge(license);
+    return `## ${data.title}
   ---
-  ${renderLicenseBadge(license)}
-
-`;
+  ${badge}
+  `;
+  } else {
+    return;
+  }
 }
 
+function generateDescription(data) {
+  if (data.confirmDescription) {
+    return `#### **Description**
+    ---
+    ${data.inputDescription}`;
+  }
+}
 module.exports = generateMarkdown;
+module.exports = generateDescription;

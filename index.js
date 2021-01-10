@@ -3,6 +3,7 @@ const fs = require("fs");
 const confirmValidation = require("./utils/validation");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
+const generateDescription = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const starting = [
@@ -171,7 +172,8 @@ function init() {
 function askQuestions() {
   inquirer.prompt(questions).then((data) => {
     const fileName = data.nameOfFile;
-    writeToFile(fileName, generateMarkdown.generateMarkdown);
+    writeToFile(fileName, generateMarkdown(data));
+    writeToFile(filename, generateDescription(data));
   });
 }
 // Function call to initialize app
