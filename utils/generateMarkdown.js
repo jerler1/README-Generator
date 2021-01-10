@@ -36,7 +36,7 @@ function renderLicenseSection(data) {
   if (data.chooseLicense) {
     if (license === "MIT") {
       return (
-        "#### **Description**" +
+        "#### **License**" +
         "\n" +
         "---" +
         "\n" +
@@ -64,7 +64,7 @@ function renderLicenseSection(data) {
       );
     } else if (license === "GNU") {
       return (
-        "#### **Description**" +
+        "#### **License**" +
         "\n" +
         "---" +
         "\n" +
@@ -690,7 +690,7 @@ copy of the Program in return for a fee.`
       );
     } else {
       return (
-        "#### **Description**" +
+        "#### **License**" +
         "\n" +
         "---" +
         "\n" +
@@ -885,7 +885,7 @@ function generateMarkdown(data) {
   ${badge}
   `;
   } else {
-    return;
+    return "";
   }
 }
 
@@ -901,7 +901,7 @@ function generateDescription(data) {
       "\n"
     );
   } else {
-    return;
+    return "";
   }
 }
 
@@ -929,7 +929,7 @@ function generateToC(data) {
       contents = contents + `1. [${table[i]}](#${table[i]})` + "\n";
     }
   } else {
-    return;
+    return "";
   }
   return contents;
 }
@@ -946,7 +946,7 @@ function generateInstallation(data) {
       "\n"
     );
   } else {
-    return;
+    return "";
   }
 }
 
@@ -957,7 +957,7 @@ function generateUsage(data) {
       "#### **Usage**" + "\n" + "---" + "\n" + `${data.usageDescription}` + "\n"
     );
   } else {
-    return;
+    return "";
   }
 }
 
@@ -973,7 +973,7 @@ function generateContributing(data) {
       "\n"
     );
   } else {
-    return;
+    return "";
   }
 }
 
@@ -991,7 +991,7 @@ function generateQuestions(data) {
       "\n"
     );
   } else {
-    return;
+    return "";
   }
 }
 
@@ -1002,7 +1002,7 @@ function generateTest(data) {
       "#### **Test**" + "\n" + "---" + "\n" + `${data.testDescription}` + "\n"
     );
   } else {
-    return;
+    return "";
   }
 }
 

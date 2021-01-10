@@ -11,7 +11,6 @@ This is my project
 1. [Usage](#Usage)
 1. [License](#License)
 1. [Contributing](#Contributing)
-1. [Test](#Test)
 1. [Questions](#Questions)
 #### **Installation**
 ---
@@ -22,9 +21,6 @@ This is a read me generator
 #### **Contributing**
 ---
 Please check the github for information.
-#### **Test**
----
-I rerun the program A LOT.
 #### **Questions**
 ---
 Want to contact me?
