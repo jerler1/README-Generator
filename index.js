@@ -149,6 +149,7 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
+// Takes the file name provided and makes a markdown file.
 function writeToFile(fileName, data) {
   fs.appendFile(`${fileName}.md`, data, (err) => {
     if (err) {
@@ -170,6 +171,9 @@ function init() {
     }
   });
 }
+
+// This function makes the file to be written by calling
+// on each function in turn and adding it's results.
 function askQuestions() {
   inquirer.prompt(questions).then((data) => {
     console.log(data);
@@ -185,6 +189,7 @@ function askQuestions() {
       gm.generateQuestions(data) +
       gm.renderLicenseSection(data) +
       gm.renderLicenseLink(data);
+    // After file has been collected we are sending it to writetofile.
     writeToFile(fileName, file);
   });
 }

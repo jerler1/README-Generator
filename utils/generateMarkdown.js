@@ -1,5 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
+// Checks for which badge to return.
 function renderLicenseBadge(license) {
   if (license === "") {
     return "";
@@ -15,6 +16,8 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(data) {
   const license = data.chooseLicense;
+
+  // Checks the license to see which URL to return.
   if (data.chooseLicense) {
     if (license === "MIT") {
       return "https://choosealicense.com/licenses/mit/";
@@ -887,6 +890,7 @@ function generateMarkdown(data) {
 }
 
 function generateDescription(data) {
+  // If this section is chosen it proceeds else it returns.
   if (data.Description) {
     return (
       "#### **Description**" +

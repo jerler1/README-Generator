@@ -1,4 +1,5 @@
 // Making a validation function.
+// Not entirely sure this works.
 function confirmValidation(input) {
   if (input !== "Yes" || input !== "No" || input !== "y" || input !== "n") {
     return "Incorrect asnwer";
