@@ -37,7 +37,8 @@ This project taught me how to use export.module extremely well. You can export m
 The usage of this CLI is fairly simple. You start with a command prompt.
 Start the program and follow the prompts. Enter values as you wish. If you select no to a section, that section will not be produced. Once all the prompts have been answered a file named how you chose will populate.
 ![picture of the app](./utils/Images/screenshot.png)
-The application is deployed [here](https://github.com/jerler1/README-Generator).
+The GitHub is deployed [here](https://github.com/jerler1/README-Generator).
+Video is [here](https://drive.google.com/file/d/1-wcmLxNJa7t3M1FPF-5thgqAhxE2hGxv/view.)
 
 #### **Credits**
 
