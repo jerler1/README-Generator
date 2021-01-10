@@ -26,6 +26,8 @@ function renderLicenseLink(data) {
     } else {
       return "https://choosealicense.com/licenses/apache-2.0/";
     }
+  } else {
+    return "";
   }
 }
 
@@ -872,6 +874,8 @@ of your accepting any such warranty or additional liability.
 END OF TERMS AND CONDITIONS`
       );
     }
+  } else {
+    return "";
   }
 }
 
