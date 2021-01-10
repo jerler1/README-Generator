@@ -13,7 +13,7 @@ function renderLicenseBadge(license) {
 }
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {
+function renderLicenseLink(data) {
   const license = data.chooseLicense;
   if (data.chooseLicense) {
     if (license === "MIT") {
@@ -960,12 +960,14 @@ function generateUsage(data) {
 // Making the contribution section.
 function generateContributing(data) {
   if (data.Contributing) {
-    "#### **Contributing**" +
+    return (
+      "#### **Contributing**" +
       "\n" +
       "---" +
       "\n" +
       `${data.contributingInfo}` +
-      "\n";
+      "\n"
+    );
   } else {
     return;
   }
@@ -974,14 +976,16 @@ function generateContributing(data) {
 // Making the question section.
 function generateQuestions(data) {
   if (data.Questions) {
-    "#### **Questions**" +
+    return (
+      "#### **Questions**" +
       "\n" +
       "---" +
       "\n" +
       `Want to contact me?
   Here is my email: ${data.email}
   My GitHub is ${data.gitHub}` +
-      "\n";
+      "\n"
+    );
   } else {
     return;
   }
@@ -989,8 +993,10 @@ function generateQuestions(data) {
 
 // Making the test section.
 function generateTest(data) {
-  if (Test) {
-    "#### **Test**" + "\n" + "---" + "\n" + `${data.testDescription}` + "\n";
+  if (data.Test) {
+    return (
+      "#### **Test**" + "\n" + "---" + "\n" + `${data.testDescription}` + "\n"
+    );
   } else {
     return;
   }
