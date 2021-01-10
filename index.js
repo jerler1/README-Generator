@@ -182,6 +182,7 @@ function askQuestions() {
       gm.generateUsage(data) +
       gm.generateContributing(data) +
       gm.generateTest(data) +
+      gm.generateQuestions(data) +
       gm.renderLicenseSection(data) +
       gm.renderLicenseLink(data);
     writeToFile(fileName, file);

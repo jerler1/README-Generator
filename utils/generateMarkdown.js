@@ -941,6 +941,8 @@ function generateInstallation(data) {
       `${data.installationDescription}` +
       "\n"
     );
+  } else {
+    return;
   }
 }
 
@@ -950,27 +952,48 @@ function generateUsage(data) {
     return (
       "#### **Usage**" + "\n" + "---" + "\n" + `${data.usageDescription}` + "\n"
     );
+  } else {
+    return;
   }
 }
 
 // Making the contribution section.
 function generateContributing(data) {
-  "#### **Contributing**" +
-    "\n" +
-    "---" +
-    "\n" +
-    `${data.contributingInfo}` +
-    "\n";
+  if (data.Contributing) {
+    "#### **Contributing**" +
+      "\n" +
+      "---" +
+      "\n" +
+      `${data.contributingInfo}` +
+      "\n";
+  } else {
+    return;
+  }
 }
 
 // Making the question section.
 function generateQuestions(data) {
-  
+  if (data.Questions) {
+    "#### **Questions**" +
+      "\n" +
+      "---" +
+      "\n" +
+      `Want to contact me?
+  Here is my email: ${data.email}
+  My GitHub is ${data.gitHub}` +
+      "\n";
+  } else {
+    return;
+  }
 }
 
 // Making the test section.
 function generateTest(data) {
-  "#### **Test**" + "\n" + "---" + "\n" + `${data.testDescription}` + "\n";
+  if (Test) {
+    "#### **Test**" + "\n" + "---" + "\n" + `${data.testDescription}` + "\n";
+  } else {
+    return;
+  }
 }
 
 module.exports = {
@@ -983,4 +1006,5 @@ module.exports = {
   renderLicenseLink,
   generateContributing,
   generateTest,
+  generateQuestions,
 };
