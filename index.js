@@ -1,7 +1,6 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
-const gm = require("./utils/generateMarkdown");
-const confirmValidation = require("./utils/generateMarkdown");
+const confirmValidation = require("./utils/validation");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
@@ -172,7 +171,7 @@ function init() {
 function askQuestions() {
   inquirer.prompt(questions).then((data) => {
     const fileName = data.nameOfFile;
-    writeToFile(fileName, generateMarkdown);
+    writeToFile(fileName, generateMarkdown.generateMarkdown);
   });
 }
 // Function call to initialize app
