@@ -14,7 +14,7 @@ const starting = [
     default: true,
   },
 ];
-// An array of objects.  Providing defaults for most questions.  
+// An array of objects.  Providing defaults for most questions.
 // Asking for confirms for sections then providing when's to give the readme more flexibility.
 const questions = [
   {
@@ -24,11 +24,11 @@ const questions = [
     default: "sample",
   },
   {
-      type: "input",
-      message: "Provide the title of your project.",
-      name: "title",
-      default: "Best Project",
-  }
+    type: "input",
+    message: "Provide the title of your project.",
+    name: "title",
+    default: "Best Project",
+  },
   {
     type: "confirm",
     message: "Do you want to make a Table of Contents?",
@@ -122,7 +122,7 @@ const questions = [
     message: "Describe your testing process.",
     name: "testDescription",
     when: (choice) => choice.confirmTest === true,
-    default: "I rerun the program A LOT."
+    default: "I rerun the program A LOT.",
   },
   {
     type: "confirm",
@@ -142,12 +142,14 @@ const questions = [
     message: "What is your GitHub?",
     name: "gitHub",
     when: (choice) => choice.confirmQuestions === true,
-    default: "https://www.github.com"
+    default: "https://www.github.com",
   },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    
+}
 
 // TODO: Create a function to initialize app
 // Made a function to confirm if you want to make a read me.
@@ -162,7 +164,8 @@ function init() {
 }
 function askQuestions() {
   inquirer.prompt(questions).then((data) => {
-    console.log(data);
+    const fileName = data.nameOfFile;
+    writeToFile(fileName, data);
   });
 }
 // Function call to initialize app
