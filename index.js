@@ -2,8 +2,9 @@
 const fs = require("fs");
 const confirmValidation = require("./utils/validation");
 const inquirer = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown");
-const generateDescription = require("./utils/generateMarkdown");
+const gm = require("./utils/generateMarkdown");
+// const generateDescription = require("./utils/generateMarkdown");
+// const generateToC = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const starting = [
@@ -39,46 +40,46 @@ const questions = [
   {
     type: "confirm",
     message: "Do you want to make a Description section?",
-    name: "confirmDescription",
+    name: "Description",
     default: true,
   },
   {
     type: "input",
     message: "Describe your project please.",
     name: "inputDescription",
-    when: (choice) => choice.confirmDescription === true,
+    when: (choice) => choice.Description === true,
     default: "This is my project",
   },
   {
     type: "confirm",
     message: "Do you want to make a Installation section?",
-    name: "confirmInstallation",
+    name: "Installation",
     default: true,
   },
   {
     type: "input",
     message: "Describe your installation process.",
     name: "installationDescription",
-    when: (choice) => choice.confirmInstallation === true,
+    when: (choice) => choice.Installation === true,
     default: "I typed this",
   },
   {
     type: "confirm",
     message: "Do you want to make a Usage section?",
-    name: "confirmUsage",
+    name: "Usage",
     default: true,
   },
   {
     type: "input",
     message: "Describe how to use your program.",
     name: "usageDescription",
-    when: (choice) => choice.confirmUsage === true,
+    when: (choice) => choice.Usage === true,
     default: "This is a read me generator",
   },
   {
     type: "confirm",
     message: "Do you want to make a License section?",
-    name: "confirmLicense",
+    name: "License",
     default: true,
   },
   {
@@ -96,53 +97,53 @@ const questions = [
       new inquirer.Separator(),
       "GNU",
     ],
-    when: (choice) => choice.confirmLicense === true,
+    when: (choice) => choice.License === true,
     default: "MIT",
   },
   {
     type: "confirm",
     message: "Are you allowing contributions?",
-    name: "confirmContributing",
+    name: "Contributing",
     default: true,
   },
   {
     type: "input",
     message: "How can people help contribute?",
     name: "contributing",
-    when: (choice) => choice.confirmContributing === true,
+    when: (choice) => choice.Contributing === true,
     default: "Please check the github for information.",
   },
   {
     type: "confirm",
     message: "Do you want to make a Test section?",
-    name: "confirmTest",
+    name: "Test",
     default: true,
   },
   {
     type: "input",
     message: "Describe your testing process.",
     name: "testDescription",
-    when: (choice) => choice.confirmTest === true,
+    when: (choice) => choice.Test === true,
     default: "I rerun the program A LOT.",
   },
   {
     type: "confirm",
     message: "Do you want to make a question section?",
-    name: "confirmQuestions",
+    name: "Questions",
     default: true,
   },
   {
     type: "input",
     message: "What is your email?",
     name: "email",
-    when: (choice) => choice.confirmQuestions === true,
+    when: (choice) => choice.Questions === true,
     default: "abc@abc.com",
   },
   {
     type: "input",
     message: "What is your GitHub?",
     name: "gitHub",
-    when: (choice) => choice.confirmQuestions === true,
+    when: (choice) => choice.Questions === true,
     default: "https://www.github.com",
   },
 ];
@@ -171,9 +172,17 @@ function init() {
 }
 function askQuestions() {
   inquirer.prompt(questions).then((data) => {
+    console.log(data);
     const fileName = data.nameOfFile;
-    writeToFile(fileName, generateMarkdown(data));
-    writeToFile(filename, generateDescription(data));
+    let file =
+      gm.generateMarkdown(data) +
+      gm.generateDescription(data) +
+      gm.generateToC(data);
+    writeToFile(fileName, file);
+    // writeToFile(fileName, gm.generateMarkdown(data));
+    // writeToFile(fileName, gm.generateDescription(data));
+    // console.log(gm.generateToC(data));
+    // writeToFile(fileName, gm.generateToC(data));
   });
 }
 // Function call to initialize app
