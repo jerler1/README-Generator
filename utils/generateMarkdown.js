@@ -57,8 +57,8 @@ function generateToC(data) {
 
     // Pushing the agreed sections into an array
     for (let i = 0; i < keyValue.length; i++) {
-      if (keyValue[i][1]) {
-        if (i === "confirmTOC") {
+      if (keyValue[i][1] === true) {
+        if (keyValue[i][0] === "confirmTOC") {
           continue;
         } else {
           table.push(keyValue[i][0]);
