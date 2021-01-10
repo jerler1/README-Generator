@@ -3,6 +3,7 @@ const fs = require("fs");
 const gm = require("./utils/generateMarkdown");
 const confirmValidation = require("./utils/generateMarkdown");
 const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const starting = [
@@ -148,7 +149,13 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    
+  fs.appendFile(`${fileName}.md`, data, (err) => {
+    if (err) {
+      console.log("Error!");
+    } else {
+      console.log("Success!");
+    }
+  });
 }
 
 // TODO: Create a function to initialize app
@@ -165,7 +172,7 @@ function init() {
 function askQuestions() {
   inquirer.prompt(questions).then((data) => {
     const fileName = data.nameOfFile;
-    writeToFile(fileName, data);
+    writeToFile(fileName, generateMarkdown);
   });
 }
 // Function call to initialize app
