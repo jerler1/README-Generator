@@ -109,7 +109,7 @@ const questions = [
   {
     type: "input",
     message: "How can people help contribute?",
-    name: "contributing",
+    name: "contributingInfo",
     when: (choice) => choice.Contributing === true,
     default: "Please check the github for information.",
   },
@@ -177,12 +177,14 @@ function askQuestions() {
     let file =
       gm.generateMarkdown(data) +
       gm.generateDescription(data) +
-      gm.generateToC(data);
+      gm.generateToC(data) +
+      gm.generateInstallation(data) +
+      gm.generateUsage(data) +
+      gm.generateContributing(data) +
+      gm.generateTest(data) +
+      gm.renderLicenseSection(data) +
+      gm.renderLicenseLink(data);
     writeToFile(fileName, file);
-    // writeToFile(fileName, gm.generateMarkdown(data));
-    // writeToFile(fileName, gm.generateDescription(data));
-    // console.log(gm.generateToC(data));
-    // writeToFile(fileName, gm.generateToC(data));
   });
 }
 // Function call to initialize app
